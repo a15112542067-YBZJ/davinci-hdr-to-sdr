@@ -1,0 +1,5 @@
+WorkflowIntegration.node
+*.node
+*.zip
+tests/artifacts/
+*.log
