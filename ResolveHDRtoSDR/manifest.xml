@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BlackmagicDesign><Plugin><Id>com.local.resolve.hdrtosdr</Id><Name>HDR 转 SDR</Name><Version>1.0.3</Version><Description>识别选中素材并批量转换 Rec.709 SDR 副本</Description><FilePath>main.js</FilePath></Plugin></BlackmagicDesign>

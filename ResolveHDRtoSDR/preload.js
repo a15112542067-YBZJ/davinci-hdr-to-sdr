@@ -1,0 +1,2 @@
+const {contextBridge,ipcRenderer}=require('electron');
+contextBridge.exposeInMainWorld('hdr',{scan:()=>ipcRenderer.invoke('scan'),start:options=>ipcRenderer.invoke('start',options),cancel:()=>ipcRenderer.invoke('cancel'),choose:kind=>ipcRenderer.invoke('choose',kind),settings:()=>ipcRenderer.invoke('settings'),save:values=>ipcRenderer.invoke('save',values),subscribe:callback=>{ipcRenderer.on('state',(_,data)=>callback(data));}});

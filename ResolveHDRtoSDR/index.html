@@ -1,0 +1,9 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; script-src 'self'"><title>HDR 转 SDR</title><link rel="stylesheet" href="style.css"></head><body>
+<header><div><span class="badge">DAVINCI RESOLVE STUDIO</span><h1>HDR 转 SDR</h1><p>选中素材 → 识别格式 → 批量生成 Rec.709 副本</p></div><span class="badge">v1.0.3</span></header>
+<section class="controls"><button id="scan" class="primary">① 识别素材格式</button><button id="start" class="primary">② 转换 SDR</button><button id="recover">导入已有 SDR</button><button id="cancel" disabled>取消任务</button><select id="mode"><option value="hevc_gpu">NVIDIA GPU · HEVC 10-bit（推荐）</option><option value="hevc">CPU · HEVC 10-bit</option><option value="dnxhr">CPU · DNxHR HQX</option></select></section>
+<section class="destination"><label>输出位置</label><input id="root" readonly placeholder="默认：原视频磁盘目录下的“转换SDR”文件夹"><button id="chooseRoot">选择目录</button><button id="resetRoot">恢复默认</button></section>
+<div class="note">媒体池：各原素材文件夹内新建“转换SDR”子文件夹。原素材保留，文件名添加 _转换SDR。<br>识别检查前 120 帧；HDR Vivid 本版采用基础层转换。未知 / Log / SDR 素材自动跳过。</div>
+<section class="summary"><strong id="message">请在媒体池选中要转换的素材，再点击“识别素材格式”。</strong><div id="counts">0 个素材</div><progress id="total" max="100" value="0"></progress></section>
+<div class="tablewrap"><table><thead><tr><th>素材 / 原始路径</th><th>原 HDR 格式 / 色彩标签</th><th>状态 / 转换路径</th><th>进度</th></tr></thead><tbody id="rows"></tbody></table><div id="empty">素材将显示在这里</div></div>
+<details><summary>转换工具设置与说明</summary><div class="destination"><label>FFmpeg</label><input id="ffmpeg"><button id="chooseFfmpeg">浏览</button></div><div class="destination"><label>ffprobe</label><input id="ffprobe"><button id="chooseFfprobe">浏览</button><button id="save">保存设置</button></div><p>需要支持 libplacebo 的 FFmpeg 与可用 Vulkan 驱动。输出经过 Rec.709 标签、HDR 元数据和时长验证。转换源文件，不包含达芬奇内的调色、剪切或特效。</p></details>
+<script src="renderer.js"></script></body></html>
